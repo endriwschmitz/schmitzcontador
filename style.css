@@ -1,3 +1,948 @@
+/* =================================================================
+   ESTILO MODERNO REFINADO - E.S. ASSESSORIA CONTÁBIL
+   (Versão Corrigida: Alta Legibilidade + Logo Gigante)
+   ================================================================= */
+
+/* 1. VARIÁVEIS E CONFIGURAÇÕES GERAIS */
+:root {
+    /* Paleta Balanceada (Clara, mas não "estourada") */
+    --bg-light: #f4f4f4;         /* Off-white/Cinza Gelo */
+    --bg-card-white: #ffffff;    /* Branco puro para cards */
+    --bg-contrast: #eae6de;      /* Bege/Greige sutil */
+    
+    /* CORREÇÃO DE LEITURA: Textos mais escuros */
+    --text-primary: #1a1a1a;     /* Preto suave (Antes era cinza chumbo) */
+    --text-secondary: #333333;   /* Cinza escuro (Antes era cinza médio ilegível) */
+    
+    /* Dourado do Logo */
+    --gold-gradient: linear-gradient(135deg, #c49a45 0%, #f3d18c 100%);
+    --gold-solid: #c49a45;
+    
+    /* Sombras */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-gold: 0 10px 30px rgba(196, 154, 69, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   2. HEADER (NAVBAR OFF-WHITE)
+   ========================================= */
+.header-glass {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0; /* Padding ajustado para o logo grande */
+    z-index: 1000;
+    
+    background: rgba(244, 244, 244, 0.98);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO AUMENTADO SIGNIFICATIVAMENTE */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    /* ALTURA DEFINIDA PARA 195PX */
+    height: 195px; 
+    width: auto; /* Largura se ajusta automaticamente */
+    object-fit: contain;
+    transition: transform 0.3s;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
+}
+
+.logo-img:hover {
+    transform: scale(1.02); /* Zoom sutil pois já é grande */
+}
+
+/* NAVEGAÇÃO */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1rem; /* Fonte ligeiramente maior para equilibrar com o logo */
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold-solid);
+}
+
+/* Botão de Contato no Menu */
+.btn-contato-menu {
+    background: var(--gold-gradient);
+    padding: 14px 32px; /* Botão um pouco maior também */
+    border-radius: 4px;
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: var(--shadow-gold);
+    transition: all 0.3s !important;
+}
+
+.btn-contato-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(196, 154, 69, 0.3);
+    filter: brightness(1.05);
+}
+
+/* =========================================
+   3. HERO SECTION (Ajustada para Leitura)
+   ========================================= */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    /* Padding superior aumentado MUITO para compensar o header de ~215px de altura */
+    padding-top: 230px; 
+    
+    /* CORREÇÃO DE LEITURA: Degradê mais forte (0.98 e 0.90) para o texto não sumir */
+    background: 
+        linear-gradient(to right, rgba(244,244,244,0.98) 30%, rgba(234,230,222,0.90) 55%, rgba(234,230,222,0.5) 100%),
+        url('lands.jpg') center/cover no-repeat;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 950px;
+    padding-left: 10px;
+}
+
+/* Badge */
+.badge {
+    display: inline-block;
+    color: var(--gold-solid);
+    border: 2px solid var(--gold-solid); /* Borda um pouco mais grossa */
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    background: rgba(196, 154, 69, 0.1);
+}
+
+/* Título Principal */
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; /* Título maior para equilibrar */
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+/* Destaque Dourado */
+.hero-text h1 em {
+    font-style: normal;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-text p {
+    font-size: 1.3rem; /* Texto maior */
+    margin-bottom: 45px;
+    color: var(--text-secondary); /* Agora usa o cinza escuro corrigido */
+    max-width: 650px;
+    font-weight: 500; /* Levemente mais negrito para leitura */
+}
+
+/* Botão Principal */
+.btn-gold {
+    display: inline-block;
+    background: var(--gold-gradient);
+    color: #ffffff;
+    padding: 20px 50px; /* Botão maior */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(196, 154, 69, 0.4);
+}
+
+/* =========================================
+   4. A EMPRESA
+   ========================================= */
+.about-section {
+    padding: 120px 0;
+    background-color: var(--bg-contrast);
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+}
+
+.about-box p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   5. SERVIÇOS
+   ========================================= */
+.servicos-section {
+    background-color: var(--bg-light);
+    padding: 120px 0 160px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 90px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.underline {
+    width: 100px;
+    height: 5px;
+    background: var(--gold-gradient);
+    margin: 30px auto;
+    border-radius: 3px;
+}
+
+.servicos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 30px;
+}
+
+/* =========================================
+   ANIMAÇÃO DOS CARDS (EFEITO APARECER)
+   ========================================= */
+
+.servico-card {
+    /* 1. Estado Inicial (Invisível e deslocado para baixo) */
+    opacity: 0;
+    transform: translateY(40px);
+    
+    /* Configuração base do card */
+    flex: 1;
+    padding: 60px 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-card-white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    
+    /* A transição suave da entrada */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+/* 2. Estado Visível (Ativado pelo seu script.js) */
+.servico-card.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vai para o lugar certo */
+}
+
+/* 3. Delays para efeito "Escadinha" (Um após o outro) */
+/* O script.js detecta todos juntos, mas o CSS faz eles aparecerem em tempos diferentes */
+.col-1 { transition-delay: 0s; }
+.col-2 { transition-delay: 0.15s; }
+.col-3 { transition-delay: 0.3s; }
+.col-4 { transition-delay: 0.45s; }
+
+/* 4. Estado Hover (Passar o mouse) */
+.servico-card.visible:hover {
+    transform: translateY(-15px); /* Levanta mais um pouco */
+    z-index: 10;
+    border-color: var(--gold-solid);
+    box-shadow: 0 25px 60px rgba(196, 154, 69, 0.15);
+    
+    /* TRUQUE: Remove o delay no hover para ficar instantâneo */
+    transition-delay: 0s; 
+    transition-duration: 0.3s; /* Mais rápido no hover */
+}
+
+/* EFEITO ESCADA AUMENTADO */
+.col-1 { padding-bottom: 160px; }
+.col-2 { padding-bottom: 110px; }
+.col-3 { padding-bottom: 60px; }
+.col-4 { padding-bottom: 10px; }
+
+/* Ícones e Textos */
+.icon svg {
+    fill: url(#gold-gradient-svg);
+    color: var(--gold-solid);
+    width: 65px;
+    height: 65px;
+    margin-bottom: 30px;
+}
+
+.servico-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    min-height: 70px;
+}
+
+.servico-card p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+    color: var(--text-secondary);
+    min-height: 100px;
+}
+
+.link-servico {
+    margin-top: auto;
+    color: var(--gold-solid);
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.link-servico:hover {
+    color: var(--text-primary);
+    border-color: var(--gold-solid);
+}
+
+/* =========================================
+   6. CONTATO (REFINADO)
+   ========================================= */
+.contact-refined {
+    background-color: var(--bg-contrast);
+    padding: 120px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--text-primary);
+}
+
+.contact-underline {
+    width: 70px;
+    height: 4px;
+    background: var(--gold-solid);
+    margin: 25px auto 70px auto;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.contact-group {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icon-circle {
+    width: 75px;
+    height: 75px;
+    background: var(--bg-card-white);
+    border: 2px solid var(--gold-solid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--gold-solid);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s;
+}
+
+.contact-group:hover .icon-circle {
+    background: var(--gold-gradient);
+    color: white;
+    border-color: transparent;
+}
+
+.text-group .label {
+    display: block;
+    color: var(--text-primary);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.text-group .info {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.text-group .info:hover {
+    color: var(--gold-solid);
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 100px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   7. FOOTER & EXTRAS
+   ========================================= */
+.footer {
+    background-color: var(--bg-contrast); /* Mesmo fundo bege do contato */
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-secondary); /* Texto cinza escuro para leitura */
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(0,0,0,0.05); 
+}
+
+.footer p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+/* BOLINHAS DE NAVEGAÇÃO */
+.side-nav {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 9999;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 3px solid var(--gold-solid);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: var(--gold-solid);
+    box-shadow: 0 0 20px rgba(196, 154, 69, 0.6);
+    transform: scale(1.3);
+}
+
+/* =========================================
+   BOTÃO WHATSAPP (VERDE ORIGINAL)
+   ========================================= */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    
+    /* COR ORIGINAL DO WHATSAPP */
+    background-color: #25d366; 
+    background-image: none;
+    
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Sombra Verde */
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    
+    z-index: 10000;
+    transition: all 0.3s ease;
+    border: 3px solid #fff;
+    animation: pulse-green 2s infinite;
+}
+
+.btn-whatsapp svg {
+    fill: #ffffff;
+    width: 40px;
+    height: 40px;
+}
+
+/* Animação de Pulsação VERDE */
+@keyframes pulse-green {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); 
+    }
+    70% { 
+        transform: scale(1.05); 
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); 
+    }
+    100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); 
+    }
+}
+
+.btn-whatsapp:hover {
+    background-color: #20b858;
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+}
+
+/* BANNER COOKIES */
+.cookie-banner {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%;
+    background: var(--bg-light);
+    color: var(--text-secondary);
+    padding: 30px;
+    text-align: center;
+    z-index: 99999;
+    border-top: 4px solid var(--gold-solid);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.btn-gold-sm {
+    background: var(--gold-gradient);
+    border: none;
+    padding: 12px 30px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 25px;
+    transition: transform 0.2s;
+}
+.btn-gold-sm:hover { transform: scale(1.05); }
+
+/* =========================================
+   8. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 1100px) {
+    /* Ajuste para tablets onde o logo grande pode quebrar o menu */
+    .logo-img { height: 120px; }
+    .header-glass { padding: 15px 0; }
+    .hero-section { padding-top: 180px; }
+    .nav-links { gap: 15px; }
+    .nav-links a, .btn-contato-menu { font-size: 0.9rem; }
+}
+
+@media (max-width: 900px) {
+    .nav-links, .side-nav { display: none; }
+    
+    /* Logo menor no celular */
+    .logo-img { height: 80px; } 
+    .header-glass { padding: 10px 0; }
+    
+    .hero-section { padding-top: 130px; align-items: flex-start; }
+    .hero-text h1 { font-size: 3rem; }
+    
+    .about-wrapper { flex-direction: column; gap: 60px; }
+    .about-content { text-align: left; }
+    
+    .servicos-grid { flex-direction: column; gap: 40px; }
+    .col-1, .col-2, .col-3, .col-4 { padding-bottom: 0; } /* Remove escada no mobile */
+    
+    .contact-row { flex-direction: column; gap: 60px; align-items: flex-start; }
+    .divider-vertical { display: none; }
+}
+
+/* =========================================
+   CORREÇÃO DE ROLAGEM (SCROLL OFFSET)
+   ========================================= */
+/* Aplica a margem em todas as seções para compensar o menu gigante */
+section, .footer {
+    /* Altura do Logo (195px) + Padding do Menu (20px) + Respiro Extra (25px) */
+    scroll-margin-top: 240px;
+}
+
+@media (max-width: 900px) {
+    section, .footer {
+        scroll-margin-top: 110px; /* Ajustado para o tamanho do header mobile */
+    }
+}
+
+/* =========================================
+   ESTILOS DAS PÁGINAS INTERNAS (CORRIGIDO PARA LEITURA)
+   ========================================= */
+
+/* Cabeçalho da Página Interna */
+.page-header {
+    /* Espaço para o menu fixo não cobrir o título */
+    padding-top: 220px; 
+    padding-bottom: 80px;
+    
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* CORREÇÃO CRÍTICA DE LEITURA: Camada branca sobre a imagem de fundo */
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(244, 244, 244, 0.9); /* Branco 90% opaco */
+    z-index: 1;
+}
+
+/* Garante que o texto fique ACIMA da camada branca */
+.page-title {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb {
+    display: block;
+    color: var(--gold-solid);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.page-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--text-primary); /* Texto Preto */
+    margin-bottom: 0;
+}
+
+/* Conteúdo do Texto */
+.content-section {
+    padding: 80px 0 120px;
+    background-color: var(--bg-light);
+}
+
+.text-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--bg-card-white); /* Fundo branco para leitura */
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+}
+
+.text-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-top: 40px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--gold-solid);
+    padding-left: 20px;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.text-content ul {
+    margin-bottom: 40px;
+    padding-left: 20px;
+    list-style: none; /* Remove bolinhas padrão */
+}
+
+.text-content li {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    padding-left: 30px;
+    position: relative;
+}
+
+/* Bolinha personalizada dourada na lista */
+.text-content li::before {
+    content: "•";
+    color: var(--gold-solid);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.text-content strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Botão Voltar */
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+.btn-back:hover { color: var(--gold-solid); }
+
+/* Ajuste Mobile */
+@media (max-width: 900px) {
+    .page-header { padding-top: 150px; }
+    .page-title h1 { font-size: 2.5rem; }
+    .text-content { padding: 30px 20px; }
+}
+
+/* =========================================
+   NAVEGAÇÃO ENTRE SERVIÇOS (BOTÕES RETANGULARES)
+   ========================================= */
+.other-services {
+    background-color: #f0ede6;
+    padding: 80px 0; /* Mais espaço vertical */
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.other-services h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+}
+
+.services-nav-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: #ffffff;
+    
+    /* TAMANHO AUMENTADO */
+    padding: 25px 40px; /* Bem mais altos e largos */
+    min-width: 300px;   /* Largura mínima para impor presença */
+    
+    /* FORMATO RETANGULAR */
+    border-radius: 4px; /* Cantos levemente suaves, mas visualmente quadrados */
+    
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 800; /* Texto mais grosso */
+    font-size: 1.1rem;
+    text-transform: uppercase; /* Letras maiúsculas */
+    letter-spacing: 1px;
+    
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+    background: var(--gold-gradient);
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(196, 154, 69, 0.2);
+    border-color: transparent;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 900px) {
+    .service-btn {
+        width: 100%; /* No celular ocupa a largura toda */
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   LAYOUT LADO A LADO (TEXTO + IMAGEM)
+   ========================================= */
+
+.split-section {
+    padding: 80px 0;
+    /* Removemos o fundo branco do card, agora fica transparente no fundo do site */
+    background: transparent; 
+}
+
+.split-container {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 60px; /* Espaço entre texto e imagem */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Coluna do Texto */
+.split-text {
+    flex: 1; /* Ocupa metade */
+}
+
+.split-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    /* Linha dourada abaixo do título */
+    position: relative; 
+    padding-bottom: 15px;
+}
+
+.split-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 3px;
+    background: var(--gold-solid);
+}
+
+.split-text ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.split-text li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+.split-text li::before {
+    content: "✓"; /* Checkmark fica mais bonito que bolinha aqui */
+    color: var(--gold-solid);
+    font-weight: bold;
+    position: absolute;
+    left: 0; top: 0;
+}
+
+/* Coluna da Imagem */
+.split-image {
+    flex: 1; /* Ocupa a outra metade */
+    position: relative;
+}
+
+.split-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15); /* Sombra elegante */
+    border: 5px solid #fff; /* Moldura branca fina */
+}
+
 @media (max-width: 900px) {
     /* Esconde menu desktop e bolinhas */
     .nav-links, .side-nav { display: none; }
@@ -39,4 +984,25 @@
         max-height: 250px;
         object-fit: cover;
     }
+}
+/* =========================================
+   ANIMAÇÃO SEÇÃO 'A EMPRESA'
+   ========================================= */
+
+/* Estado Inicial (Invisível e deslocado) */
+.about-image, .about-content {
+    opacity: 0;
+    transform: translateY(50px); /* Empurrado para baixo */
+    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); /* Transição suave */
+}
+
+/* Estado Visível (Quando o JS ativar) */
+.about-image.visible, .about-content.visible {
+    opacity: 1;
+    transform: translateY(0); /* Volta para o lugar original */
+}
+
+/* Delay para criar sequência: Imagem primeiro, Texto depois */
+.about-content {
+    transition-delay: 0.3s; /* O texto espera 0.3s para começar a subir */
 }
