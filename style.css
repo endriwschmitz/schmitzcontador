@@ -1,6 +1,6 @@
 /* =================================================================
    ESTILO MODERNO REFINADO - E.S. ASSESSORIA CONTÁBIL
-   (Tones Off-White e Logo GIGANTE)
+   (Versão Corrigida: Alta Legibilidade + Logo Gigante)
    ================================================================= */
 
 /* 1. VARIÁVEIS E CONFIGURAÇÕES GERAIS */
@@ -10,8 +10,9 @@
     --bg-card-white: #ffffff;    /* Branco puro para cards */
     --bg-contrast: #eae6de;      /* Bege/Greige sutil */
     
-    --text-primary: #2c2c2c;     /* Cinza chumbo profundo */
-    --text-secondary: #555555;   /* Cinza médio */
+    /* CORREÇÃO DE LEITURA: Textos mais escuros */
+    --text-primary: #1a1a1a;     /* Preto suave (Antes era cinza chumbo) */
+    --text-secondary: #333333;   /* Cinza escuro (Antes era cinza médio ilegível) */
     
     /* Dourado do Logo */
     --gold-gradient: linear-gradient(135deg, #c49a45 0%, #f3d18c 100%);
@@ -130,7 +131,7 @@ body {
 }
 
 /* =========================================
-   3. HERO SECTION (Ajustada para Header Alto)
+   3. HERO SECTION (Ajustada para Leitura)
    ========================================= */
 .hero-section {
     position: relative;
@@ -140,8 +141,9 @@ body {
     /* Padding superior aumentado MUITO para compensar o header de ~215px de altura */
     padding-top: 230px; 
     
+    /* CORREÇÃO DE LEITURA: Degradê mais forte (0.98 e 0.90) para o texto não sumir */
     background: 
-        linear-gradient(to right, rgba(244,244,244,0.94) 25%, rgba(234,230,222,0.75) 40%),
+        linear-gradient(to right, rgba(244,244,244,0.98) 30%, rgba(234,230,222,0.90) 55%, rgba(234,230,222,0.5) 100%),
         url('lands.jpg') center/cover no-repeat;
 }
 
@@ -193,8 +195,9 @@ body {
 .hero-text p {
     font-size: 1.3rem; /* Texto maior */
     margin-bottom: 45px;
-    color: var(--text-secondary);
+    color: var(--text-secondary); /* Agora usa o cinza escuro corrigido */
     max-width: 650px;
+    font-weight: 500; /* Levemente mais negrito para leitura */
 }
 
 /* Botão Principal */
@@ -456,17 +459,12 @@ body {
 /* =========================================
    7. FOOTER & EXTRAS
    ========================================= */
-/* =========================================
-   7. FOOTER (MESMA COR DO CONTATO)
-   ========================================= */
 .footer {
     background-color: var(--bg-contrast); /* Mesmo fundo bege do contato */
     padding: 40px 20px;
     text-align: center;
     color: var(--text-secondary); /* Texto cinza escuro para leitura */
     font-size: 0.95rem;
-    
-    /* Linha sutil apenas para separar visualmente se necessário */
     border-top: 1px solid rgba(0,0,0,0.05); 
 }
 
@@ -515,7 +513,7 @@ body {
     
     /* COR ORIGINAL DO WHATSAPP */
     background-color: #25d366; 
-    background-image: none; /* Remove degradê dourado se houver */
+    background-image: none;
     
     color: white;
     border-radius: 50%;
@@ -555,7 +553,7 @@ body {
 }
 
 .btn-whatsapp:hover {
-    background-color: #20b858; /* Verde um pouco mais escuro no hover */
+    background-color: #20b858;
     transform: scale(1.1);
     box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
 }
@@ -619,6 +617,7 @@ body {
     .contact-row { flex-direction: column; gap: 60px; align-items: flex-start; }
     .divider-vertical { display: none; }
 }
+
 /* =========================================
    CORREÇÃO DE ROLAGEM (SCROLL OFFSET)
    ========================================= */
@@ -628,15 +627,14 @@ section, .footer {
     scroll-margin-top: 240px;
 }
 
-/* IMPORTANTE: Ajuste para Celular */
-/* No celular o logo diminui, então a margem precisa diminuir também para não ficar um buraco */
 @media (max-width: 900px) {
     section, .footer {
         scroll-margin-top: 110px; /* Ajustado para o tamanho do header mobile */
     }
 }
+
 /* =========================================
-   ESTILOS DAS PÁGINAS INTERNAS (CORRIGIDO)
+   ESTILOS DAS PÁGINAS INTERNAS (CORRIGIDO PARA LEITURA)
    ========================================= */
 
 /* Cabeçalho da Página Interna */
@@ -648,11 +646,23 @@ section, .footer {
     text-align: center;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax elegante */
     position: relative;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
+/* CORREÇÃO CRÍTICA DE LEITURA: Camada branca sobre a imagem de fundo */
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(244, 244, 244, 0.9); /* Branco 90% opaco */
+    z-index: 1;
+}
+
+/* Garante que o texto fique ACIMA da camada branca */
 .page-title {
     position: relative;
     z-index: 2;
@@ -674,7 +684,7 @@ section, .footer {
 .page-title h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
-    color: var(--text-primary); /* Texto Escuro agora */
+    color: var(--text-primary); /* Texto Preto */
     margin-bottom: 0;
 }
 
@@ -757,6 +767,7 @@ section, .footer {
     .page-title h1 { font-size: 2.5rem; }
     .text-content { padding: 30px 20px; }
 }
+
 /* =========================================
    NAVEGAÇÃO ENTRE SERVIÇOS (BOTÕES RETANGULARES)
    ========================================= */
@@ -822,6 +833,7 @@ section, .footer {
         padding: 20px;
     }
 }
+
 /* =========================================
    LAYOUT LADO A LADO (TEXTO + IMAGEM)
    ========================================= */
