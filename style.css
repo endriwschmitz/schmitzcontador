@@ -302,27 +302,58 @@ body {
     gap: 30px;
 }
 
-/* Estilo do Card */
+/* =========================================
+   ANIMAÇÃO DOS CARDS (EFEITO APARECER)
+   ========================================= */
+
 .servico-card {
+    /* 1. Estado Inicial (Invisível e deslocado para baixo) */
+    opacity: 0;
+    transform: translateY(40px);
+    
+    /* Configuração base do card */
     flex: 1;
     padding: 60px 35px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: all 0.3s ease;
     position: relative;
     background-color: var(--bg-card-white);
     border: 1px solid rgba(0,0,0,0.06);
     border-radius: 12px;
     box-shadow: var(--shadow-soft);
+    
+    /* A transição suave da entrada */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
 }
 
-.servico-card:hover {
-    transform: translateY(-15px);
+/* 2. Estado Visível (Ativado pelo seu script.js) */
+.servico-card.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vai para o lugar certo */
+}
+
+/* 3. Delays para efeito "Escadinha" (Um após o outro) */
+/* O script.js detecta todos juntos, mas o CSS faz eles aparecerem em tempos diferentes */
+.col-1 { transition-delay: 0s; }
+.col-2 { transition-delay: 0.15s; }
+.col-3 { transition-delay: 0.3s; }
+.col-4 { transition-delay: 0.45s; }
+
+/* 4. Estado Hover (Passar o mouse) */
+.servico-card.visible:hover {
+    transform: translateY(-15px); /* Levanta mais um pouco */
     z-index: 10;
     border-color: var(--gold-solid);
     box-shadow: 0 25px 60px rgba(196, 154, 69, 0.15);
+    
+    /* TRUQUE: Remove o delay no hover para ficar instantâneo */
+    transition-delay: 0s; 
+    transition-duration: 0.3s; /* Mais rápido no hover */
 }
 
 /* EFEITO ESCADA AUMENTADO */
@@ -922,4 +953,25 @@ section, .footer {
         max-height: 300px;
         object-fit: cover;
     }
+}
+/* =========================================
+   ANIMAÇÃO SEÇÃO 'A EMPRESA'
+   ========================================= */
+
+/* Estado Inicial (Invisível e deslocado) */
+.about-image, .about-content {
+    opacity: 0;
+    transform: translateY(50px); /* Empurrado para baixo */
+    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); /* Transição suave */
+}
+
+/* Estado Visível (Quando o JS ativar) */
+.about-image.visible, .about-content.visible {
+    opacity: 1;
+    transform: translateY(0); /* Volta para o lugar original */
+}
+
+/* Delay para criar sequência: Imagem primeiro, Texto depois */
+.about-content {
+    transition-delay: 0.3s; /* O texto espera 0.3s para começar a subir */
 }
