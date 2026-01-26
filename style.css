@@ -1006,3 +1006,38 @@ section, .footer {
 .about-content {
     transition-delay: 0.3s; /* O texto espera 0.3s para começar a subir */
 }
+/* =========================================
+   CRÉDITOS SAMISTECH (RODAPÉ)
+   ========================================= */
+.credits {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.9;
+}
+
+/* Estilo do Raio (Bolt) */
+.credits i {
+    color: var(--gold-solid); /* Usa o dourado do tema */
+    margin: 0 4px;
+    animation: pulse-bolt 2s infinite; /* Efeito pulsando suave */
+}
+
+/* Estilo do Link SamisTech */
+.credits a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.credits a:hover {
+    color: var(--gold-solid); /* Fica dourado ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* Animação opcional para o raio */
+@keyframes pulse-bolt {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
